@@ -1,0 +1,221 @@
+body{
+    height:100%;width:99%;
+    background-image:linear-gradient(120deg,#15374e,#67d4cf);
+    padding-bottom: 0;
+    margin: 0;
+}
+
+#back{
+    position:absolute;
+    top:5px;
+    left:5px;
+    color:#41a3e4; 
+    text-decoration: none;
+}
+
+/*设置栏*/
+input.setting{
+    margin:0; padding:0;
+    visibility: hidden;
+}
+lable{
+    position:absolute;
+    right:0px;
+    background-color: rgb(68, 170, 90);
+    margin:0px; padding:0px;
+    transform: scale(0.3);
+    width:100px;
+    height:50px;
+    border:solid 1px #fff;
+    border-radius:25px;
+}
+lable input::after{
+    visibility: visible;
+    content: '';
+    width: 40px;
+    height: 40px;
+    position: absolute;;
+    left:5px;
+    top:5px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+lable input:checked::after{
+    transform: translateX(50px);
+}
+
+/*搜索栏*/
+#serch {
+    position: absolute;
+    top:11%; left:5%;
+    background-color: black;
+    padding:0;
+    margin:0;
+    width:39%;height:45px;
+}
+
+#serch input{
+    padding:15px;
+    margin:0;
+    outline: none;
+    width:100%;height:45px;
+    background-color: rgb(255, 255, 255);
+    box-shadow:0 0 0 0 rgb(226, 226, 226);
+    transition: 0.2s;
+    font-size: 5px;
+    border-radius: 5px;
+}
+
+#serch input:hover{
+    box-shadow: 0 0 1px 1px rgb(226, 226, 226);
+}
+
+.serch-txt{
+    position:relative;
+    left:0px; top:0px;
+    color:rgba(208, 211, 219, 0.973);
+    font-weight: 1px;
+}
+
+/*热键栏*/
+p.hot-key{
+    width:40%;height:30%;
+    background-color:rgba(41,57,55); 
+    margin:0; padding: 0px;
+    border:6px inset rgb(247, 247, 247);
+    position:absolute;
+    right:40px;top:9%;
+}
+img.keys{
+    width:25px; height:25px;
+    padding:20px; margin-left:27px; margin-top:13px;
+    background-color:rgb(255, 255, 255);
+    border:2px outset rgba(243, 243, 243, 0.986);
+    box-shadow: 0px 0px 5px 0px rgba(197, 197, 197, 0.692);
+    transition:0.3s;
+}
+
+img.keys:hover{
+    width:19px; height:19px;
+    padding:20px; margin-left:33px; margin-top:13px;
+    box-shadow:0px 0px 5px 5px rgba(197, 197, 197, 0.479);
+}
+
+/*书签栏*/
+.NOTES{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top:45%;left:5%;
+    width:92%; height:50%;
+}
+#a{
+    margin: 0;
+    padding: 0;
+}
+#sentence{
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    position: relative;
+    color: rgba(151, 23, 23, 0.582);
+    width: 100%;
+}
+
+.note-top{
+    width:100%; height:40px;
+    background-color:rgb(234, 235, 214);
+    box-shadow: 0px 0px 7px 0px rgba(207, 201, 135, 0.568);
+    transition:0.8s;
+}
+.note-top:hover{
+    box-shadow:0px 0px 10px 3px rgb(221, 219, 196);
+}
+.note-down{
+    width:99.6%; height:90%;
+    background-color:rgb(234, 235, 214);
+    border-bottom:2px solid black;
+    border-left:2px dashed black;
+    border-right:2px dashed black;
+    box-shadow: 0px 0px 7px 0px rgba(207, 201, 135, 0.568);
+    transition:0.8s;
+}
+.note-down:hover{
+    box-shadow:0px 0px 10px 3px rgb(221, 219, 196);
+}
+#note1 {
+    margin:10px; padding:10px;
+    width:98%;
+}
+
+/*按键动态效果*/
+ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+li.bulin {
+    list-style: none;
+    margin: 5px;
+}
+
+a.bulin {
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+    padding: 3px 18px;
+    /* background-color: #3ce745; */
+    transition: background-color 0.8s;
+}
+
+a.bulin:hover {
+    background-color: #e74c3c;
+}
+
+a.bulin::before {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 18px;
+    border: 2px solid #dce73c;
+    border-width: 0 0 2px 2px;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+a::after {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 18px;
+    border: 2px solid #e74c3c;
+    border-width: 2px 2px 0 0;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+a.bulin:hover::before {
+    left: -12px;
+    bottom: -12px;
+    opacity: 1;
+}
+
+a.bulin:hover::after {
+    top: -12px;
+    right: -12px;
+    opacity: 1;
+
+}
+/*署名*/
+.shuming{
+    padding:5px; margin:0px;
+    position:absolute;
+    bottom:0px; right:50%;
+    
+}
+

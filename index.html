@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <!DOCTYPE html>
+        <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0,mininum-scale=1,maxinum-scale=1,user-scalable=no" >
+        <title>搜索页</title>
+        <link href="styles/style-pc.css" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/png" sizes="144x144" href="images/logo.png"/>
+        <script type="text/javascript" src="./js/index.js"></script>
+    </head>
+    <body oncontextmenu="showMenu(event)">
+        <!-- 背景 -->
+        <div id="web-bg" style="background-image: url('https://retiehe.com/backend/bing/1080p');"></div>
+        <!-- <div id="web-bg" style="background-image: url('./images/th.jfif');"></div> -->
+
+
+        <!--背景音乐-->
+        <span id="bf" onclick="bf();">
+            <lable>
+                <input type="checkbox" class="setting" >
+            </lable>
+        </span>
+        <audio src="./audio/陈致逸 HOYO-MiX - Above the Sea of Clouds 云海之上.mp3" controls="controls" loop preload id="music1" hidden></audio>
+
+        
+        <!--搜索栏-->
+        <div class="zhezhao" id="zhezhao1" onclick="hidder1()" ></div>
+        <form action="https://cn.bing.com/search" id="serch" target="-blank">
+            <input type="text" name="q" id="searchinput" onfocus="setfocus(this.id)" placeholder="按下回车键以搜索" autofocus="autofocus"/>
+        </form>
+
+        <script>
+            document.getElementById('zhezhao1').style.display='none';
+            var i=0;
+            var h=0.9;
+            function setfocus(){
+                i=0;
+                h=0.9;
+                document.getElementById('zhezhao1').style.backgroundColor='rgba(0,0,0,0)'
+                document.getElementById('zhezhao1').style.display='';
+                //重复执行 background 以降低透明度
+                var t1=setInterval(function(){background()},60);
+                function background() {
+                    //改变搜索框遮罩
+                    i=i+0.1;
+                    document.getElementById('zhezhao1').style.backgroundColor='rgba(0,0,0,'+i+')';
+                    if(i>0.3){              //跳出循环
+                        clearInterval(t1);
+                    }
+                }      
+                               
+            }
+            function hidder1(){
+                document.getElementById('zhezhao1').style.display='none';
+                i=0;
+                h=0.9;
+            }
+        </script>
+
+        <!--热键栏-->
+        <div class="hot-key">
+
+            <a href="https://www.bilibili.com/" class="box">
+            <!-- 每个图标的小盒子 -->
+                <div class="img">
+                    <img src="images/bilibili.PNG" alt="">
+                </div>
+                <p>哔哩哔哩</p>
+            </a>
+
+            <a href="Video/video.html" class="box">
+            <!-- 每个图标的小盒子 -->
+                 <div class="img">
+                    <img src="images/收藏.jpg" alt="">
+                </div>
+                <p>收藏</p>
+            </a>
+
+            <a href="https://music.163.com/" class="box">
+            <!-- 每个图标的小盒子 -->
+                <div class="img">
+                    <img src="images/网易云.png" alt="">
+                </div>
+                <p>网易云</p>
+            </a>
+        
+            <a href="https://translate.google.cn/?sl=auto&tl=zh-CN&op=translate" class="box">
+            <!-- 每个图标的小盒子 -->
+                  <div class="img">
+                     <img src="images/谷歌翻译.png" alt="">
+                 </div>
+                 <p>翻译</p>
+             </a>
+            
+            <a href="https://yowa.huya.com/" class="box">
+                <!-- 每个图标的小盒子 -->
+                    <div class="img">
+                        <img src="images/虎牙云游戏.png" alt="">
+                    </div>
+                    <p>云游戏</p>
+            </a>
+            
+            <a href="https://www.yizhong.xm.fj.cn/index.html" class="box">
+                <!-- 每个图标的小盒子 -->
+                    <div class="img">
+                        <img src="images/厦一主页.png" alt="">
+                    </div>
+                    <p>厦一主页</p>
+            </a>
+            
+        </div>
+
+        <!-- 句子 -->
+        <!-- <td id="sentence"><iframe id="sentence"src="https://sxslead.rthe.net/sentence.html" frameBorder="0"scrolling="no" ></iframe></td> -->
+
+        <!-- 菜单 -->  
+                <!-- 开关 -->
+        <button type="button" onclick="dianwo()" class="Threeline">
+
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+
+        </button>
+                <!-- 本体 -->
+		<div class="zhezhao" id='zhezhao' >   
+			<div class="tankuang">
+				<div id="header">
+					<span >菜单</span>
+                    <div id="header-right" onclick="hidder()">
+                        <img src="./images/关闭.png" style="width: 100%; cursor: pointer;">
+                    </div>
+                </div>
+                <ul>
+                    <a href="./sanw/合欢树-史铁生.html" target="-blank"><li>合欢树-史铁生</li></a>
+                    <a href="./others/index-old.html" ><li>旧的主页</li></a>
+                    <a href="https://sxs.rthe.xyz" target="-blank"><li>“welcome”</li></a>
+                    <a href="./Video/video.html" target="-blank"><li>收藏的视频</li></a>
+                    <hr style="margin-top: 5px; margin-bottom: 5px;" />
+                    <a href="https://music.163.com/outchain/player?type=1&id=97767168&auto=1&height=430" ><li>音乐-原神-皎月云间之梦</li></a>
+                    <a href="https://www.chaosgroup.com/cn/gallery" target="-blank"><li>vray画廊</li></a>
+                    <a href="https://otp.landian.vip/zh-cn/download.html"><li>office tool</li></a>
+                    <a href="https://ps.gaoding.com/#/" target="-blank"><li>网页版Photoshop</li></a>
+                    <a href="https://cg.163.com/#/pc" target="-blank"><li>网易云游戏</li></a>
+                    <a href="https://console.cloud.tencent.com/" ><li>腾讯云</li></a>
+                    <a href="https://host.retiehe.com/" ><li>热铁盒</li></a>
+                    
+                </ul>
+			</div>
+        </div>
+        
+    </body>
+
+    <script>
+    //菜单弹窗
+document.getElementById('zhezhao').style.display="none";
+function dianwo(){
+    document.getElementById('zhezhao').style.display="";
+}
+function hidder(){
+    document.getElementById('zhezhao').style.display="none";
+}
+
+//背景音乐控制
+function bf(){
+var audio = document.getElementById('music1'); 
+if(audio.paused){                 
+    audio.play();// 这个就是播放  
+    // alert("hello");
+}else{
+    audio.pause();// 这个就是暂停
+    // alert("stop");
+}
+}
+
+</script>
+</html>
+
