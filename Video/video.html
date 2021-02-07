@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=0.65,mininum-scale=1.0,maxinum-scale=1,user-scalable=no" />
+    <title>收藏</title>
+    <link rel="icon" type="image/png" sizes="144x144" href="../images/收藏.jpg"/>
+    <link href="./style/video.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <!-- 背景 -->
+    <div id="web-bg" style="background-image: url(style/bj1.jpg);"></div>
+
+    <!-- 顶部 -->
+    <div id="top">
+
+        <!-- 返回 -->
+        <a href="../index.html">
+            <div id="back">
+                    <img class="home" src="../images/logo.png">
+                    <div>首页</div>
+            </div>
+        </a>
+
+        <!-- 搜索 -->
+        <form action="https://www.baidu.com/s" id="serch" >
+            <input type="text" name="wd" style="border:none;" placeholder="serch">
+        </form>
+
+        <!--背景音乐-->
+        <span id="bf" onclick="bf();">
+            <lable>
+                <input type="checkbox" class="setting"  checked="checked">
+            </lable>
+        </span>
+        <audio src="../audio/横山克 - アゲイン.mp3" controls="controls" autoplay="autoplay" preload id="music1" hidden></audio>
+
+        
+    </div>
+    
+    <!-- 瀑布流 -->
+    <div id="main">
+        <div class="box">
+            <div class="pic">
+                <p class="in">夜空中最亮的星</p>
+                <a href="夜空中最亮的星/夜空中最亮的星 - 逃跑计划.mp3">
+                    <img src="夜空中最亮的星/fm.jpeg"> 
+                </a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="pic">
+                <p class="in">ue4《sweet home》</p>
+                <a href="https://www.ggac.net/m/work/detail/50916"target="-blank"> 
+                    <img src="./fm/ue4渲染室内.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="pic">
+                <p class="in">第一届MC独立游戏短片竞赛宣传片</p>
+                <a href="https://www.bilibili.com/video/BV1qt4y1a77u"target="-blank"> 
+                    <img src="./fm/第一届MC独立游戏短片竞赛宣传片.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="pic">
+                <p class="in">迪士尼宣传片</p>
+                <a href="迪士尼宣传片/xs.html"> 
+                    <img src="迪士尼宣传片/fm.jpg"  > 
+                </a>
+            </div>
+        </div>
+        
+       
+        <div class="box">
+            <div class="pic">
+                <p class="in">流浪地球片尾</p>
+                <a href="流浪地球片尾/xs.html"> 
+                    <img src="流浪地球片尾/封面.jpg"  > 
+                </a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="pic">
+                <p class="in">《原神》EP</p>
+                <a href="《原神》EP - 轻风诉说之事/xs.html"> 
+                    <img src="《原神》EP - 轻风诉说之事/《原神》EP - 轻风诉说之事.jpg"  > 
+                </a>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="pic">
+                <p class="in">inmost</p>
+                <a href="inmost/xs.html"> 
+                    <img src="inmost/inmost2.jpg"  > 
+                </a>
+            </div>
+        </div>   
+
+        <div class="box">
+            <div class="pic">
+                <p class="in">日出</p>
+                <a href="https://www.bilibili.com/video/BV18D4y1d7Yu/"target="-blank"> 
+                    <img src="./fm/日出.jpg"  > 
+                </a>
+            </div>
+        </div>
+        
+        <div class="box">
+            <div class="pic">
+                <p class="in">草率的自制</p>
+                <a href="https://www.bilibili.com/video/BV1vp4y117WC/"target="-blank"> 
+                    <img src="./fm/草率的自制.jpg"  > 
+                </a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="pic">
+                <p class="in">我真的额想睡觉啊！搞笑动画 午后课堂 （Afternoon Class）</p>
+                <a href="https://www.bilibili.com/video/BV1zv41167eJ"target="-blank"> 
+                    <img src="./fm/我是真的想睡觉啊.jpg"  > 
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+<!-- 瀑布流 -->
+    <script type="text/javascript">
+        window.onload = function(){
+            waterfall('main','box');
+            
+             
+            window.onscroll = function(){
+                //当滚动到最后一张图片高度一般时刷新新数据
+                var boxs = getClass('box');
+                var oneh2 = boxs[boxs.length-1].offsetTop;
+                var oneh = boxs[boxs.length-1].offsetHeight/2;
+                var top = document.body.scrollTop || document.documentElement.scrollTop;
+                var twoh = document.body.clientHeight||document.documentElement.clientHeight;
+ 
+                if(oneh2+oneh<top+twoh){
+                    for(var i=0;i<dataImg.arr.length;i++){
+                        var main = document.getElementById('main');
+                        var cdiv = document.createElement('div');
+                        cdiv.className = 'box';
+                        var cpic = document.createElement('div');
+                        cpic.className = 'pic';
+                        var cimg = document.createElement('img');
+                        cimg.src =  dataImg.arr[i].src;
+                        main.appendChild(cdiv);
+                        cdiv.appendChild(cpic);
+                        cpic.appendChild(cimg);
+                    }
+                }
+                waterfall('main','box');
+            }
+        }
+ 
+        function waterfall(parent,box){
+            //获取main元素
+            var oparent = document.getElementById(parent);
+ 
+            //获取所有 box 元素
+            var obox = getClass('box');
+ 
+            //获取每行能放多少个 居中摆放
+            var w = document.body.clientWidth||document.documentElement.clientWidth;
+            //var w =1000;
+            var oneWidth = obox[0].offsetWidth;
+            var num = Math.floor(w/oneWidth);
+            main.style.width = num*oneWidth+'px';
+ 
+            //瀑布流原理  left-下标*图片width top-上面图片高
+            var hrr = [];
+            for(var i=0;i<obox.length;i++){
+                if(i<num){
+                    hrr.push(obox[i].offsetHeight);
+                }else{
+                    var min = Math.min.apply(null,hrr);
+                    var index = getindex(hrr,min);
+                    obox[i].style.position = 'absolute';
+                    obox[i].style.left = index*oneWidth+'px';
+                    obox[i].style.top = min+'px';
+                    hrr[index] += obox[i].offsetHeight;
+                }
+            }
+            console.log(hrr);
+        }
+ 
+        //获取 数组内指定值的 序号
+        function getindex(hrr,h){
+            for(var i=0;i<hrr.length;i++){
+                if(hrr[i]==h){
+                    return i;
+                }
+            }
+        }
+ 
+        //统计所有指定class名称的元素
+        function getClass(a){
+            var doms = document.getElementsByTagName('*');
+            var reg = new RegExp('\\b'+a+'\\b');
+            //var reg = '/^\b'+a+'\b$/';
+            var arr = [];
+            for(var i=0;i<doms.length;i++){
+                if(reg.test(doms[i].className)){
+                    arr.push(doms[i]);
+                }
+            }
+            return arr;
+        }
+ 
+//背景音乐控制
+  function bf(){
+            var audio = document.getElementById('music1'); 
+            if(audio.paused){                 
+                audio.play();// 这个就是播放  
+                // alert("hello");
+            }else{
+                audio.pause();// 这个就是暂停
+                // alert("stop");
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>
